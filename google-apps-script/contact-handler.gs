@@ -19,6 +19,20 @@ const CONTACT_HEADERS = [
   "User Agent"
 ];
 
+function doGet() {
+  return jsonResponse_({
+    ok: true,
+    message: "Portfolio contact handler is reachable.",
+    configuredSpreadsheet: Boolean(
+      CONTACT_CONFIG.spreadsheetId &&
+      CONTACT_CONFIG.spreadsheetId.indexOf("PASTE_") !== 0
+    ),
+    sheetName: CONTACT_CONFIG.sheetName,
+    notificationEmail: CONTACT_CONFIG.notificationEmail,
+    defaultOpportunityStatus: CONTACT_CONFIG.defaultOpportunityStatus
+  });
+}
+
 function doPost(e) {
   try {
     const payload = getPayload_(e);
@@ -43,13 +57,9 @@ function doPost(e) {
     sheet.appendRow(row);
     sendNotificationEmail_(row);
 
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: true }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonResponse_({ ok: true });
   } catch (error) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: false, error: error.message }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonResponse_({ ok: false, error: error.message });
   }
 }
 
@@ -119,4 +129,10 @@ function sendNotificationEmail_(row) {
     body: body,
     replyTo: row[3]
   });
+}
+
+function jsonResponse_(payload) {
+  return ContentService
+    .createTextOutput(JSON.stringify(payload))
+    .setMimeType(ContentService.MimeType.JSON);
 }

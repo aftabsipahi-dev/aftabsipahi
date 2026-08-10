@@ -47,6 +47,11 @@ Recommended deployment:
 
 After deployment, copy the Web App URL.
 
+Important:
+
+- After changing `spreadsheetId` or any script code, you must redeploy the Apps Script web app.
+- Updating files in this repo does not update the already deployed Google Apps Script URL.
+
 ## Frontend config
 
 Open [assets/js/contact-config.js](/Users/aftabsipahi/Downloads/Portfolio-Website-main/assets/js/contact-config.js:1) and set:
@@ -68,3 +73,16 @@ window.PORTFOLIO_CONTACT_CONFIG = {
 4. Confirm a new row appears in your Google Sheet with `Opportunity Status = Open`
 
 If the form shows success but nothing lands in the sheet, check the Apps Script `Executions` tab for errors.
+
+## Fast debug checks
+
+1. Open the deployed Web App URL directly in the browser.
+2. It should return JSON like:
+
+```json
+{"ok":true,"message":"Portfolio contact handler is reachable.", ...}
+```
+
+3. If the URL returns `403`, the deployment is not public.
+4. If it returns `{"ok":true,"configuredSpreadsheet":false}`, your script is live but `spreadsheetId` is still not set.
+5. If there is still no entry in `Executions`, the browser never reached `doPost`, which usually means the wrong deployment URL is configured or the web app access is not set to `Anyone`.
