@@ -656,6 +656,7 @@ header .navbar ul li a:hover {
   flex-wrap: wrap;
   gap: 1.5rem;
   margin: 2rem;
+  align-items: stretch;
 }
 .work .box-container .box {
   flex: 1 1 30rem;
@@ -663,47 +664,65 @@ header .navbar ul li a:hover {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  height: 30rem;
-}
-.work .box-container .box img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.work .box-container .box .content {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 85%;
-  left: 0;
-  background: rgba(255, 255, 255, 0.9);
+  min-height: 34rem;
+  height: auto;
   display: flex;
   flex-direction: column;
+  background: #ffffff;
+}
+.work .box-container .box .project-visual {
+  min-height: 10rem;
+  padding: 1.8rem;
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(135deg, #0176d3 0%, #0b5cab 55%, #032d60 100%);
+}
+.work .box-container .box .project-visual span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+}
+.work .box-container .box .content {
+  width: 100%;
+  position: static;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
 .work .box-container .box .content .tag {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 4.5rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
-  padding-left: 1rem;
-  background: #ffd900;
+  padding: 1.8rem 1.8rem 0;
+  background: transparent;
 }
 .work .box-container .box .content .tag h3 {
   font-size: 2rem;
+  line-height: 1.35;
 }
 .work .box-container .box:hover .content {
-  top: 25%;
+  top: 0;
 }
 .work .desc {
-  margin: 2rem;
+  margin: 1.4rem 1.8rem 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .work .desc p {
   font-size: 1.5rem;
+  line-height: 1.7;
+  color: #22324d;
+  text-transform: none;
 }
 .work .desc .btns {
   display: flex;
