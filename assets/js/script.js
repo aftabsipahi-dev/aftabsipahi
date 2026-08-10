@@ -37,24 +37,59 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-    // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
-
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
+    $("#contact-form").submit(async function (event) {
         event.preventDefault();
+
+        const form = event.currentTarget;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const contactConfig = window.PORTFOLIO_CONTACT_CONFIG || {};
+        const endpoint = contactConfig.appsScriptEndpoint;
+
+        if (!endpoint) {
+            setContactStatus("Contact form is not configured yet. Add the Google Apps Script URL in assets/js/contact-config.js.", true);
+            return;
+        }
+
+        const formData = new FormData(form);
+        formData.append("opportunityStatus", contactConfig.defaultOpportunityStatus || "Open");
+        formData.append("source", contactConfig.sourceLabel || "Portfolio Website");
+        formData.append("pageUrl", window.location.href);
+        formData.append("userAgent", window.navigator.userAgent);
+
+        submitButton.disabled = true;
+        submitButton.classList.add("is-loading");
+        setContactStatus("Sending your message...");
+
+        try {
+            await fetch(endpoint, {
+                method: "POST",
+                mode: "no-cors",
+                body: formData
+            });
+
+            form.reset();
+            setContactStatus("Message sent. The inquiry email was triggered and the lead was added to your Google Sheet.");
+        } catch (error) {
+            console.error("Contact form submission failed", error);
+            setContactStatus("Form submission failed. Check the Apps Script deployment URL and try again.", true);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.classList.remove("is-loading");
+        }
     });
-    // <!-- emailjs to mail contact form data -->
 
 });
+
+function setContactStatus(message, isError = false) {
+    const statusElement = document.getElementById("contact-status");
+    if (!statusElement) {
+        return;
+    }
+
+    statusElement.textContent = message;
+    statusElement.classList.toggle("is-error", Boolean(isError));
+    statusElement.classList.toggle("is-success", !isError && message !== "");
+}
 
 document.addEventListener('visibilitychange',
     function () {
