@@ -37,58 +37,35 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-    $("#contact-form").submit(async function (event) {
-        event.preventDefault();
-
-        const form = event.currentTarget;
-        const submitButton = form.querySelector('button[type="submit"]');
-        const contactConfig = window.PORTFOLIO_CONTACT_CONFIG || {};
-        const endpoint = contactConfig.appsScriptEndpoint;
-
-        if (!endpoint) {
-            setContactStatus("Contact form is not configured yet. Add the Google Apps Script URL in assets/js/contact-config.js.", true);
-            return;
-        }
-
-        const formData = new FormData(form);
-        formData.append("opportunityStatus", contactConfig.defaultOpportunityStatus || "Open");
-        formData.append("source", contactConfig.sourceLabel || "Portfolio Website");
-        formData.append("pageUrl", window.location.href);
-        formData.append("userAgent", window.navigator.userAgent);
-
-        submitButton.disabled = true;
-        submitButton.classList.add("is-loading");
-        setContactStatus("Sending your message...");
-
-        try {
-            await fetch(endpoint, {
-                method: "POST",
-                mode: "no-cors",
-                body: formData
-            });
-
-            form.reset();
-            setContactStatus("Message sent. The inquiry email was triggered and the lead was added to your Google Sheet.");
-        } catch (error) {
-            console.error("Contact form submission failed", error);
-            setContactStatus("Form submission failed. Check the Apps Script deployment URL and try again.", true);
-        } finally {
-            submitButton.disabled = false;
-            submitButton.classList.remove("is-loading");
-        }
-    });
+    initializeGoogleFormContact();
 
 });
 
-function setContactStatus(message, isError = false) {
-    const statusElement = document.getElementById("contact-status");
-    if (!statusElement) {
+function initializeGoogleFormContact() {
+    const embedElement = document.getElementById("google-form-embed");
+    const linkElement = document.getElementById("google-form-link");
+    const statusElement = document.getElementById("google-form-status");
+
+    if (!embedElement || !linkElement || !statusElement) {
         return;
     }
 
-    statusElement.textContent = message;
-    statusElement.classList.toggle("is-error", Boolean(isError));
-    statusElement.classList.toggle("is-success", !isError && message !== "");
+    const contactConfig = window.PORTFOLIO_CONTACT_CONFIG || {};
+    const embedUrl = contactConfig.googleFormEmbedUrl || "";
+    const viewUrl = contactConfig.googleFormViewUrl || "";
+
+    if (!embedUrl || !viewUrl) {
+        embedElement.style.display = "none";
+        linkElement.style.display = "none";
+        statusElement.textContent = "Add your Google Form embed URL and view URL in assets/js/contact-config.js.";
+        statusElement.classList.add("is-warning");
+        return;
+    }
+
+    embedElement.src = embedUrl;
+    linkElement.href = viewUrl;
+    statusElement.textContent = "Responses go directly to your linked Google Sheet.";
+    statusElement.classList.remove("is-warning");
 }
 
 document.addEventListener('visibilitychange',

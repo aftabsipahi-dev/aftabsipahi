@@ -286,32 +286,23 @@
       <div class="image-box">
         <img draggable="false" src="./assets/images/contact1.png" alt="">
       </div>
-    <form id="contact-form">
-      
-      <div class="form-group">
-        <div class="field">
-          <input type="text" name="name" placeholder="Name" required>
-          <i class='fas fa-user'></i>
+      <div class="google-form-panel">
+        <p class="google-form-copy">Fill the Google Form and the response will be stored in the linked Google Sheet, where you can manage the opportunity status directly.</p>
+        <iframe
+          id="google-form-embed"
+          class="google-form-embed"
+          title="Contact Form"
+          loading="lazy"
+          src=""
+        ></iframe>
+        <div class="google-form-actions">
+          <a id="google-form-link" class="btn" href="#" target="_blank" rel="noopener noreferrer">
+            <span>Open Form in New Tab</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
-        <div class="field">
-          <input type="email" name="email" placeholder="Email" required>
-          <i class='fas fa-envelope'></i>
-        </div>
-        <div class="field">
-          <input type="tel" name="phone" placeholder="Phone">
-          <i class='fas fa-phone-alt'></i>
-        </div>
-        <div class="message">
-        <textarea placeholder="Message" name="message" required></textarea>
-        <i class="fas fa-comment-dots"></i>
-        </div>
-        </div>
-      <div class="button-area">
-        <button type="submit">
-          Submit <i class="fa fa-paper-plane"></i></button>
+        <p id="google-form-status" class="google-form-status" aria-live="polite"></p>
       </div>
-      <p id="contact-status" class="contact-status" aria-live="polite"></p>
-    </form>
   </div>
   </div>
 </section>

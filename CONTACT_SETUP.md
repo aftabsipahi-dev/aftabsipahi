@@ -1,88 +1,62 @@
 # Contact Form Setup
 
-This portfolio is now wired for a Google Apps Script backend that does two things on every contact form submission:
+This portfolio now uses a Google Form for the `Get in Touch` section.
 
-1. Sends an email notification to `aftab@aftabsipahi.com`
-2. Appends the lead into a Google Sheet with an `Opportunity Status` column
+Flow:
 
-## Google Sheet
+1. Visitor fills the Google Form embedded on the website
+2. Google Forms stores the response directly in a linked Google Sheet
+3. You manage lead progress in that sheet using an `Opportunity Status` column
+4. Google Forms can notify you for new responses
 
-Create a Google Sheet and keep one tab named `Leads`.
-
-The Apps Script will create these columns automatically if the sheet is empty:
-
-- `Lead ID`
-- `Created At`
-- `Name`
-- `Email`
-- `Phone`
-- `Message`
-- `Opportunity Status`
-- `Source`
-- `Page URL`
-- `User Agent`
-
-`Opportunity Status` is automatically set to `Open` and configured with a dropdown:
-
-- `Open`
-- `Working`
-- `Qualified`
-- `Closed Won`
-- `Closed Lost`
-- `On Hold`
-
-## Apps Script
-
-1. Open `script.google.com`
-2. Create a new Apps Script project
-3. Paste the content of [google-apps-script/contact-handler.gs](/Users/aftabsipahi/Downloads/Portfolio-Website-main/google-apps-script/contact-handler.gs:1)
-4. Replace `PASTE_YOUR_GOOGLE_SHEET_ID_HERE` with your real Google Sheet ID
-5. Save the script
-6. Deploy it as a Web App
-
-Recommended deployment:
-
-- `Execute as`: `Me`
-- `Who has access`: `Anyone`
-
-After deployment, copy the Web App URL.
-
-Important:
-
-- After changing `spreadsheetId` or any script code, you must redeploy the Apps Script web app.
-- Updating files in this repo does not update the already deployed Google Apps Script URL.
-
-## Frontend config
+## What to configure
 
 Open [assets/js/contact-config.js](/Users/aftabsipahi/Downloads/Portfolio-Website-main/assets/js/contact-config.js:1) and set:
 
 ```js
 window.PORTFOLIO_CONTACT_CONFIG = {
-    appsScriptEndpoint: "YOUR_WEB_APP_URL_HERE",
-    notificationEmail: "aftab@aftabsipahi.com",
-    defaultOpportunityStatus: "Open",
-    sourceLabel: "Portfolio Website"
+    googleFormEmbedUrl: "YOUR_GOOGLE_FORM_EMBED_URL",
+    googleFormViewUrl: "YOUR_GOOGLE_FORM_VIEW_URL"
 };
 ```
 
-## Test flow
+Example:
 
-1. Fill the `Get in Touch` form on the website
-2. Submit the form
-3. Confirm you receive an email at `aftab@aftabsipahi.com`
-4. Confirm a new row appears in your Google Sheet with `Opportunity Status = Open`
-
-If the form shows success but nothing lands in the sheet, check the Apps Script `Executions` tab for errors.
-
-## Fast debug checks
-
-1. Open the deployed Web App URL directly in the browser.
-2. It should return JSON like:
-
-```json
-{"ok":true,"message":"Portfolio contact handler is reachable.", ...}
+```txt
+googleFormEmbedUrl: "https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true"
+googleFormViewUrl: "https://docs.google.com/forms/d/e/FORM_ID/viewform"
 ```
 
-3. If the URL returns `403`, the deployment is not public.
-4. If it returns `{"ok":true,"configuredSpreadsheet":false}`, your script is live but `spreadsheetId` is still not set.
-5. If there is still no entry in `Executions`, the browser never reached `doPost`, which usually means the wrong deployment URL is configured or the web app access is not set to `Anyone`.
+## Google Form setup
+
+1. Create a Google Form with fields for:
+   - Name
+   - Email
+   - Phone
+   - Message
+2. In Google Forms, open `Responses`
+3. Link responses to a Google Sheet
+4. In that Google Sheet, add a manual column named `Opportunity Status`
+5. Use values like:
+   - `Open`
+   - `Working`
+   - `Qualified`
+   - `Closed Won`
+   - `Closed Lost`
+   - `On Hold`
+
+## Email notifications
+
+In Google Forms:
+
+1. Open the form
+2. Go to `Responses`
+3. Click the three-dot menu
+4. Enable email notifications for new responses
+
+## Notes
+
+- This is simpler than Apps Script or a serverless backend
+- Responses are stored directly in Google Sheets
+- No API deployment is required
+- The website no longer handles form submission itself
