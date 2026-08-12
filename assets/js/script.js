@@ -37,36 +37,7 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-    initializeGoogleFormContact();
-
 });
-
-function initializeGoogleFormContact() {
-    const embedElement = document.getElementById("google-form-embed");
-    const linkElement = document.getElementById("google-form-link");
-    const statusElement = document.getElementById("google-form-status");
-
-    if (!embedElement || !linkElement || !statusElement) {
-        return;
-    }
-
-    const contactConfig = window.PORTFOLIO_CONTACT_CONFIG || {};
-    const embedUrl = contactConfig.googleFormEmbedUrl || "";
-    const viewUrl = contactConfig.googleFormViewUrl || "";
-
-    if (!embedUrl || !viewUrl) {
-        embedElement.style.display = "none";
-        linkElement.style.display = "none";
-        statusElement.textContent = "Add your Google Form embed URL and view URL in assets/js/contact-config.js.";
-        statusElement.classList.add("is-warning");
-        return;
-    }
-
-    embedElement.src = embedUrl;
-    linkElement.href = viewUrl;
-    statusElement.textContent = "Responses go directly to your linked Google Sheet.";
-    statusElement.classList.remove("is-warning");
-}
 
 document.addEventListener('visibilitychange',
     function () {
