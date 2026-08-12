@@ -1,5 +1,5 @@
 const CONTACT_CONFIG = {
-  spreadsheetId: "PASTE_YOUR_GOOGLE_SHEET_ID_HERE",
+  spreadsheetId: "https://docs.google.com/spreadsheets/d/1RIomhMBvzqCxTBtHoF9rXWcnIfjhD6Dd_l64CUd2fgQ/edit?usp=sharing",
   sheetName: "Leads",
   notificationEmail: "aftab@aftabsipahi.com",
   defaultOpportunityStatus: "Open",
