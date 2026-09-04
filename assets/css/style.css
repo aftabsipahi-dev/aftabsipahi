@@ -26,6 +26,22 @@ body {
   color: #fff;
 }
 
+:focus-visible {
+  outline: 0.3rem solid #fc8c05;
+  outline-offset: 0.3rem;
+}
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2000;
+  padding: 1rem 1.5rem;
+  color: #fff;
+  background: #002057;
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -129,6 +145,7 @@ header .navbar ul li a:hover {
   cursor: pointer;
   color: rgb(24, 2, 63);
   display: none;
+  background: transparent;
 }
 @media (max-width: 768px) {
   #menu {
@@ -237,6 +254,20 @@ header .navbar ul li a:hover {
   font-weight: 600;
   padding: 1rem 0;
 }
+.home .content .availability {
+  max-width: 64rem;
+  color: #233d6b;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: none;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
 .home .content p span {
   font-size: 2.5rem;
   color: rgb(148, 8, 8);
@@ -244,8 +275,7 @@ header .navbar ul li a:hover {
   padding: 1rem 0;
 }
 .home .btn {
-  margin-top: 1rem;
-  position: absolute;
+  position: relative;
   line-height: 0;
   padding: 1.6rem 3rem;
   border-radius: 4em;
@@ -255,6 +285,13 @@ header .navbar ul li a:hover {
   box-shadow: 0px 5px 18px rgba(48, 68, 247, 0.6);
   font-family: "Nunito", sans-serif;
 }
+.home .secondary-btn {
+  color: #2506ad;
+  background: #fff;
+  border: 0.2rem solid #2506ad;
+  box-shadow: none;
+}
+.home .secondary-btn:hover { color: #fff; }
 .home .btn span {
   font-weight: 700;
   font-size: 1.7rem;
@@ -276,6 +313,25 @@ header .navbar ul li a:hover {
   position: relative;
   margin-top: 9rem;
 }
+.trust-strip {
+  min-height: auto;
+  padding: 2rem 9%;
+  background: #002057;
+}
+.trust-strip ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 3rem;
+  list-style: none;
+}
+.trust-strip li {
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 600;
+  text-transform: none;
+}
+.trust-strip i { margin-right: 0.7rem; color: #ffcb05; }
 .socials .social-icons {
   padding-left: 0;
   margin-bottom: 0;
@@ -330,11 +386,9 @@ header .navbar ul li a:hover {
     font-size: 3.6rem;
   }
   .home .btn {
-    margin: 4rem 0;
+    margin: 0;
   }
-  .socials {
-    margin-top: 12rem;
-  }
+  .socials { margin-top: 4rem; }
   .home .image img {
     margin-top: -12rem;
   }
@@ -1403,6 +1457,63 @@ header .navbar ul li a:hover {
   }
 }
 /* common media queries ends*/
+
+/* accessibility, contact and service page enhancements */
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.form-status {
+  min-height: 2.4rem;
+  margin-top: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: none;
+}
+.form-status.error { color: #b42318; }
+.form-status.success { color: #087443; }
+.contact .btn:disabled { opacity: 0.7; cursor: wait; }
+.service-final-cta {
+  margin-top: 5rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  color: #fff;
+  background: #002057;
+}
+.service-final-cta h2,
+.service-final-cta p { color: #fff; }
+.service-lead { font-size: 2rem !important; font-weight: 700; }
+.service-cta {
+  display: inline-block;
+  margin: 1.5rem 1rem 0 0;
+  padding: 1.3rem 2rem;
+  border-radius: 0.6rem;
+  color: #fff !important;
+  background: #2506ad;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+.service-cta:hover { background: #0176d3; }
+.service-cta-secondary { color: #2506ad !important; background: #fff; border: 0.2rem solid #2506ad; }
+.service-final-cta .service-cta { color: #002057 !important; background: #ffcb05; }
+.service-final-cta .service-cta:hover { color: #fff !important; background: #0176d3; }
+header.service-header .navbar { position: static; height: auto; background: transparent; }
+@media screen and (max-width: 768px) {
+  header.service-header { padding: 1.7rem 5%; }
+  header.service-header .navbar { position: static; display: block; width: auto; height: auto; background: transparent; }
+  header.service-header .navbar ul { flex-flow: row; padding: 0; gap: 1rem; }
+  header.service-header .navbar ul li { width: auto; margin: 0; }
+  header.service-header .navbar ul li a { padding: 0; color: #0e2431; font-size: 1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  #particles-js { display: none; }
+}
 
 /* scroll top starts */
 #scroll-top {

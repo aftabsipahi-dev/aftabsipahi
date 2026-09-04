@@ -4,19 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Aftab Sipahi, Salesforce Developer, Salesforce Developer Mehsana, Apex Developer, Lightning Web Components, LWC, Salesforce Flow, Experience Cloud, Salesforce portfolio" />
-    <meta name="description" content="Aftab Sipahi is a Salesforce Developer in Mehsana, India specializing in Apex, LWC, Flow, and Experience Cloud. View projects &amp; certifications." />
+    <meta name="description" content="Aftab Sipahi is a certified Salesforce Developer, Administrator and Consultant in India specializing in Apex, LWC, Flow, integrations, Experience Cloud and CRM support.">
+    <link rel="canonical" href="https://aftabsipahi.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aftab Sipahi | Salesforce Developer, Admin &amp; Consultant">
+    <meta property="og:description" content="Certified Salesforce Developer, Administrator and Consultant in India specializing in Apex, LWC, Flow, integrations, Experience Cloud and CRM support.">
+    <meta property="og:url" content="https://aftabsipahi.com/">
+    <meta property="og:image" content="https://aftabsipahi.com/assets/images/hero.png">
+    <meta property="og:image:alt" content="Aftab Sipahi, certified Salesforce Developer, Administrator and Consultant">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aftab Sipahi | Salesforce Developer, Admin &amp; Consultant">
+    <meta name="twitter:description" content="Certified Salesforce Developer, Administrator and Consultant in India specializing in Apex, LWC, Flow, integrations, Experience Cloud and CRM support.">
+    <meta name="twitter:image" content="https://aftabsipahi.com/assets/images/hero.png">
+    <meta name="twitter:image:alt" content="Aftab Sipahi, certified Salesforce Developer, Administrator and Consultant">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Aftab Sipahi",
-        "jobTitle": "Salesforce Developer",
-        "worksFor": { "@type": "Organization", "name": "Adoptforce.com" },
-        "sameAs": [
-          "https://www.linkedin.com/in/aftabsipahi/",
-          "https://github.com/sipahiaftab",
-          "https://x.com/Aftab_Sipahi"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://aftabsipahi.com/#aftab-sipahi",
+            "name": "Aftab Sipahi",
+            "url": "https://aftabsipahi.com/",
+            "image": "https://aftabsipahi.com/assets/images/profile2.jpg",
+            "jobTitle": "Certified Salesforce Developer, Administrator and Consultant",
+            "homeLocation": { "@type": "Place", "name": "Mehsana, Gujarat, India" },
+            "hasCredential": [
+              { "@type": "EducationalOccupationalCredential", "name": "Salesforce Certified Platform Developer I" },
+              { "@type": "EducationalOccupationalCredential", "name": "Salesforce Certified Administrator" }
+            ],
+            "knowsAbout": ["Salesforce", "Apex", "Lightning Web Components", "Salesforce Flow", "Experience Cloud", "Salesforce integrations", "Sales Cloud", "Service Cloud"],
+            "sameAs": ["https://www.linkedin.com/in/aftabsipahi/", "https://github.com/sipahiaftab", "https://x.com/Aftab_Sipahi"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aftabsipahi.com/#website",
+            "url": "https://aftabsipahi.com/",
+            "name": "Aftab Sipahi | Salesforce Developer, Admin & Consultant",
+            "publisher": { "@id": "https://aftabsipahi.com/#aftab-sipahi" }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://aftabsipahi.com/#profile",
+            "url": "https://aftabsipahi.com/",
+            "mainEntity": { "@id": "https://aftabsipahi.com/#aftab-sipahi" }
+          }
         ]
       }
     </script>
@@ -26,9 +58,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
     <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
-    <title>Aftab Sipahi | Salesforce Developer &amp; Certified Platform Developer</title>
+    <title>Aftab Sipahi | Salesforce Developer, Admin &amp; Consultant</title>
 </head>
-<body oncontextmenu="return false">
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- pre loader -->
 <!-- <div class="loader-container">
@@ -39,11 +72,12 @@
 <header>
         <a href="/" class="logo">Aftab Sipahi</a>
 
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
+        <button id="menu" class="fas fa-bars" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"></button>
+        <nav class="navbar" id="primary-navigation" aria-label="Primary navigation">
             <ul>
-            <li><a class="active" href="#home">Home</a></li>
+            <li><a class="active" href="#home" aria-current="page">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="./salesforce-developer-administrator/">Services</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#work">Work</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -55,29 +89,42 @@
 <!-- navbar ends -->
 
 
+<main id="main-content">
 <!-- hero section starts -->
 <section class="home" id="home">
     <div id="particles-js"></div>
 
     <div class="content">
-    <h1>Aftab Sipahi <span>— Salesforce Developer</span></h1>
-    <p>Salesforce Developer specializing in Apex, Lightning Web Components, Flow automation, and Experience Cloud.</p>
-    <a href="#about" class="btn"><span>About Me</span>
-      <i class="fas fa-arrow-circle-down"></i>
-    </a>
+    <h1>Certified Salesforce Developer, Administrator <span>&amp; Consultant</span></h1>
+    <p>I help businesses configure, automate and extend Salesforce using Flow, Apex, Lightning Web Components, secure integrations and practical CRM consulting.</p>
+    <p class="availability">Based in India and available for freelance, contract and remote Salesforce consulting projects.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn"><span>Discuss a Salesforce Project</span><i class="fas fa-arrow-circle-down"></i></a>
+      <a href="https://drive.google.com/file/d/1xFGokmKLsAfGrdkyX8ETCGfgaKhWjEVc/view" target="_blank" rel="noopener noreferrer" class="btn secondary-btn"><span>View Resume</span><i class="fas fa-external-link-alt"></i></a>
+    </div>
     <div class="socials">
         <ul class="social-icons">
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/aftabsipahi/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
-          <li><a class="github" aria-label="GitHub" href="https://github.com/sipahiaftab" target="_blank"><i class="fab fa-github"></i></a></li>
-          <li><a class="twitter" aria-label="Twitter" href="https://x.com/Aftab_Sipahi" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li><a class="linkedin" aria-label="LinkedIn (opens in a new tab)" href="https://www.linkedin.com/in/aftabsipahi/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+          <li><a class="github" aria-label="GitHub (opens in a new tab)" href="https://github.com/sipahiaftab" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+          <li><a class="twitter" aria-label="X (opens in a new tab)" href="https://x.com/Aftab_Sipahi" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
         </ul>
       </div>
     </div>
 <div class="image">
-    <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="">
+    <img draggable="false" class="tilt" src="./assets/images/hero-900.png" width="900" height="900" fetchpriority="high" decoding="async" alt="Aftab Sipahi, certified Salesforce Developer, Administrator and Consultant">
 </div>
 </section>
 <!-- hero section ends -->
+
+<section class="trust-strip" aria-label="Professional credentials and availability">
+  <ul>
+    <li><i class="fas fa-certificate" aria-hidden="true"></i> Salesforce Certified Platform Developer I</li>
+    <li><i class="fas fa-certificate" aria-hidden="true"></i> Salesforce Certified Administrator</li>
+    <li><i class="fas fa-mountain" aria-hidden="true"></i> Trailhead Ranger</li>
+    <li><i class="fas fa-briefcase" aria-hidden="true"></i> Professional Salesforce experience</li>
+    <li><i class="fas fa-globe-asia" aria-hidden="true"></i> India-based remote availability</li>
+  </ul>
+</section>
 
 
 <!-- about section starts -->
@@ -87,14 +134,14 @@
     <div class="row">
 
     <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="">
+        <img draggable="false" class="tilt" src="./assets/images/profile2-1200.jpg" srcset="./assets/images/profile2-720.jpg 540w, ./assets/images/profile2-1200.jpg 900w" sizes="(max-width: 600px) 80vw, 30rem" width="900" height="1200" loading="lazy" decoding="async" alt="Aftab Sipahi, certified Salesforce Developer, Administrator and Consultant">
     </div>
     <div class="content">
         <h3>I'm Aftab</h3>
-        <span class="tag">Salesforce Developer</span>
+        <span class="tag">Salesforce Consultant · Certified Salesforce Developer · Salesforce Administrator</span>
         
         <p>
-  I am a Salesforce Developer based in Mehsana, India.
+  I am a certified Salesforce Developer, Administrator and Consultant based in Mehsana, India.
   Passionate about creating efficient, scalable, and user-centric solutions on the Salesforce Platform.
   I specialize in Apex, Lightning Web Components (LWC), Salesforce Flow, Integrations, and Experience Cloud.
   I enjoy transforming business requirements into powerful CRM applications and automation solutions.
@@ -110,7 +157,7 @@
         </div>
         
         <div class="resumebtn">
-            <a href="https://drive.google.com/file/d/1xFGokmKLsAfGrdkyX8ETCGfgaKhWjEVc/view" target="_blank" class="btn"><span>Resume</span>
+            <a href="https://drive.google.com/file/d/1xFGokmKLsAfGrdkyX8ETCGfgaKhWjEVc/view" target="_blank" rel="noopener noreferrer" class="btn"><span>View Resume</span>
                 <i class="fas fa-chevron-right"></i>
             </a>
         </div>
@@ -170,7 +217,7 @@
 
     <div class="box">
         <div class="image">
-        <img draggable="false" src="./assets/images/educat/college-2.webp" alt="">
+        <img draggable="false" src="./assets/images/educat/college-2.webp" width="750" height="500" loading="lazy" decoding="async" alt="U. V. Patel College of Engineering at Ganpat University">
         </div>
         <div class="content">
         <h3>B.Tech in Computer Science Engineering</h3>
@@ -181,7 +228,7 @@
 
     <div class="box">
       <div class="image">
-      <img draggable="false" src="./assets/images/educat/college.webp" alt="">
+      <img draggable="false" src="./assets/images/educat/college.webp" width="680" height="382" loading="lazy" decoding="async" alt="B. S. Patel Polytechnic at Ganpat University">
       </div>
       <div class="content">
       <h3>Diploma in Computer Engineering</h3>
@@ -192,7 +239,7 @@
 
     <div class="box">
       <div class="image">
-      <img draggable="false" src="./assets/images/educat/school.jpg" alt="">
+      <img draggable="false" src="./assets/images/educat/school.jpg" loading="lazy" decoding="async" alt="Shri Vardhman Vidyalaya">
       </div>
       <div class="content">
       <h3>10th Standard</h3>
@@ -209,7 +256,7 @@
 <!-- work project section starts -->
 <section class="work" id="work">
 
-  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Salesforce Projects <span>and Case Studies</span></h2>
 
   <div class="box-container">
     <article class="box">
@@ -218,8 +265,11 @@
         <div class="tag"><h3>Customer Onboarding &amp; Loan Servicing App</h3></div>
         <div class="desc">
           <p><strong>Scenario:</strong> Banking teams needed one workspace for KYC review, loan servicing, repayments, and customer support.</p>
+          <p><strong>Role:</strong> Salesforce Developer supporting the technical design and delivery of the operations workflow.</p>
           <p><strong>Built:</strong> A Salesforce operations app with guided onboarding, automated routing, scheduled processing, and role-based access.</p>
           <p><strong>Tech:</strong> Apex, LWC, Flow, Batch Apex, Experience Cloud, APIs, Reports &amp; Dashboards.</p>
+          <p><strong>Security &amp; scale:</strong> Used role-based access and asynchronous processing to support controlled, repeatable operations.</p>
+          <p><strong>Testing &amp; deployment:</strong> Validated automation and Apex behaviour before release, with release support for operational users.</p>
           <p><strong>Outcome:</strong> Consolidated fragmented service work into a traceable workflow with clearer ownership and customer status visibility.</p>
         </div>
       </div>
@@ -230,8 +280,11 @@
         <div class="tag"><h3>Partner Ordering &amp; Self-Service Portal</h3></div>
         <div class="desc">
           <p><strong>Scenario:</strong> Partners needed a self-service way to discover products, submit quotes and orders, and track fulfilment.</p>
+          <p><strong>Role:</strong> Salesforce Developer contributing to the partner-facing experience and workflow automation.</p>
           <p><strong>Built:</strong> A partner experience for quote-to-order, returns, delivery tracking, and approval-driven workflows.</p>
           <p><strong>Tech:</strong> LWC, Apex Controllers, Flow, Experience Cloud, ERP and payment integrations.</p>
+          <p><strong>Security &amp; scale:</strong> Applied sharing-aware portal access and integration patterns suited to partner self-service.</p>
+          <p><strong>Testing &amp; deployment:</strong> Tested key order and approval paths and supported release coordination across connected systems.</p>
           <p><strong>Outcome:</strong> Gave partners a single source for order activity while reducing manual handoffs between sales and operations.</p>
         </div>
       </div>
@@ -242,8 +295,11 @@
         <div class="tag"><h3>Claims Automation Workspace</h3></div>
         <div class="desc">
           <p><strong>Scenario:</strong> Claims teams needed to coordinate intake, document checks, routing, SLA monitoring, and settlement updates.</p>
+          <p><strong>Role:</strong> Salesforce Developer building the automation and operational workspace for claims teams.</p>
           <p><strong>Built:</strong> A Lightning workspace that automates claim routing, validation tasks, and management reporting.</p>
           <p><strong>Tech:</strong> Custom Objects, Apex Triggers, Batch Apex, Schedulers, Flow, Lightning App Builder.</p>
+          <p><strong>Security &amp; scale:</strong> Designed around controlled claim access and scheduled processing for high-volume operational tasks.</p>
+          <p><strong>Testing &amp; deployment:</strong> Tested routing and scheduled jobs, then supported deployment with clear operational visibility.</p>
           <p><strong>Outcome:</strong> Made claim progress and SLA exceptions visible in one operational view for faster follow-up.</p>
         </div>
       </div>
@@ -362,23 +418,27 @@
 <section class="contact" id="contact">
   <h2 class="heading"><i class="fas fa-paper-plane"></i> Start a <span>Conversation</span></h2>
   <div class="contact-container">
-    <p>Share a little about your Salesforce project and I’ll get back to you.</p>
+    <p>Need help with Salesforce development, administration or CRM consulting? Share your requirements and I’ll respond with the next practical step.</p>
     <form id="contactForm" data-mail-user="aftab" data-mail-domain="aftabsipahi.com">
+      <div class="honeypot" aria-hidden="true"><label for="companyWebsite">Company website</label><input id="companyWebsite" name="companyWebsite" type="text" tabindex="-1" autocomplete="off"></div>
       <label for="contactName">Name</label>
       <input id="contactName" name="name" type="text" autocomplete="name" required>
       <label for="contactEmail">Email</label>
       <input id="contactEmail" name="email" type="email" autocomplete="email" required>
       <label for="contactMessage">Project details</label>
       <textarea id="contactMessage" name="message" rows="5" required></textarea>
-      <button class="btn" type="submit"><span>Send message</span><i class="fas fa-paper-plane"></i></button>
+      <button class="btn" type="submit"><span>Discuss a Salesforce Project</span><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+      <p id="contactStatus" class="form-status" role="status" aria-live="polite"></p>
     </form>
+    <noscript><p class="form-status">JavaScript is required to open your email app from this form. You can also <a href="https://www.linkedin.com/in/aftabsipahi/" target="_blank" rel="noopener noreferrer">contact Aftab on LinkedIn</a>.</p></noscript>
     <a class="vcard-link" href="./assets/aftab-sipahi.vcf" download><i class="fas fa-address-card"></i> Download vCard</a>
   </div>
 </section>
 <!-- contact section ends -->
+</main>
 
 <!-- footer section starts -->
-<section class="footer">
+<footer class="footer">
 
   <div class="box-container">
 
@@ -395,6 +455,7 @@
           <a href="#certifications"><i class="fas fa-chevron-circle-right"></i> certifications</a>
           <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
           <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
+          <a href="./salesforce-developer-administrator/"><i class="fas fa-chevron-circle-right"></i> Salesforce consulting services</a>
           <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
           <a href="#insights"><i class="fas fa-chevron-circle-right"></i> insights</a>
           <a href="#contact"><i class="fas fa-chevron-circle-right"></i> contact</a>
@@ -407,16 +468,16 @@
           <a href="./assets/aftab-sipahi.vcf" download><i class="fas fa-address-card"></i> Download vCard</a>
           <div class="share">
 
-              <a href="https://www.linkedin.com/in/aftabsipahi/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-              <a href="https://github.com/sipahiaftab" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-              <a href="https://x.com/Aftab_Sipahi" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
+              <a href="https://www.linkedin.com/in/aftabsipahi/" class="fab fa-linkedin" aria-label="LinkedIn (opens in a new tab)" target="_blank" rel="noopener noreferrer"></a>
+              <a href="https://github.com/sipahiaftab" class="fab fa-github" aria-label="GitHub (opens in a new tab)" target="_blank" rel="noopener noreferrer"></a>
+              <a href="https://x.com/Aftab_Sipahi" class="fab fa-twitter" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer"></a>
           </div>
       </div>
   </div>
 
   <p class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/aftabsipahi/"> aftab sipahi</a></p>
 
-</section>
+</footer>
 <!-- footer section ends -->
 
 
@@ -427,22 +488,22 @@
 
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
 <!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
 
 <!-- particle.js links -->
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
+<script src="./assets/js/particles.min.js" defer></script>
+<script src="./assets/js/app.js" defer></script>
 
 <!-- vanilla tilt.js links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
 <!-- scroll reveal anim -->
-<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://unpkg.com/scrollreveal" defer></script>
 
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
 
-<script src="./assets/js/script.js"></script>
+<script src="./assets/js/script.js" defer></script>
 
 </body>
 </html>

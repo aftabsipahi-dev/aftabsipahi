@@ -73,7 +73,7 @@ function showSkills(skills) {
         skillHTML += `
         <div class="bar">
               <div class="info">
-                <img src=${skill.icon} alt="skill" />
+                <img src="${skill.icon}" alt="${skill.name} icon" loading="lazy" decoding="async" />
                 <span>${skill.name}</span>
               </div>
             </div>`
@@ -101,25 +101,6 @@ VanillaTilt.init(document.querySelectorAll(".tilt"), {
 // }
 // window.onload = fadeOut;
 // pre loader end
-
-// disable developer mode
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
-    }
-}
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
 const srtop = ScrollReveal({
@@ -171,11 +152,38 @@ const contactForm = document.getElementById("contactForm");
 if (contactForm) {
     contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
+        const status = document.getElementById("contactStatus");
+        const submitButton = contactForm.querySelector('button[type="submit"]');
         const formData = new FormData(contactForm);
+        if (formData.get("companyWebsite")) {
+            if (status) {
+                status.textContent = "Thanks. Your message is ready to send.";
+                status.className = "form-status success";
+            }
+            return;
+        }
+        if (!contactForm.checkValidity()) {
+            if (status) {
+                status.textContent = "Please complete the required fields with a valid email address.";
+                status.className = "form-status error";
+            }
+            contactForm.reportValidity();
+            return;
+        }
+        submitButton.disabled = true;
+        submitButton.querySelector("span").textContent = "Opening email client…";
+        if (status) {
+            status.textContent = "Your email app will open with your project details.";
+            status.className = "form-status success";
+        }
         const recipient = `${contactForm.dataset.mailUser}@${contactForm.dataset.mailDomain}`;
         const subject = `Portfolio enquiry from ${formData.get("name")}`;
         const body = `Name: ${formData.get("name")}\nEmail: ${formData.get("email")}\n\nProject details:\n${formData.get("message")}`;
         window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.setTimeout(() => {
+            submitButton.disabled = false;
+            submitButton.querySelector("span").textContent = "Discuss a Salesforce Project";
+        }, 1200);
     });
 }
 
