@@ -146,8 +146,11 @@ header .navbar ul li a:hover {
   color: rgb(24, 2, 63);
   display: none;
   background: transparent;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  line-height: 1;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   #menu {
     display: block;
   }
@@ -221,17 +224,23 @@ header .navbar ul li a:hover {
 }
 .home .content {
   flex: 1 1 40rem;
+  min-width: 0;
   padding-top: 1rem;
   z-index: 1;
 }
 .home .image {
   flex: 1 1 40rem;
+  min-width: 0;
   z-index: 1;
 }
 .home .image img {
-  width: 70%;
-  margin-left: 6rem;
+  display: block;
+  width: min(100%, 42rem);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  margin: 0 auto;
   border-radius: 50%;
+  object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
@@ -239,26 +248,45 @@ header .navbar ul li a:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 .home .content h1 {
-  font-size: 5rem;
+  max-width: 68rem;
+  font-size: 4.6rem;
   font-weight: 800;
   color: #002057;
+  line-height: 1.22;
+  text-transform: none;
 }
 .home .content h1 span {
-  font-size: 5rem;
+  font-size: 4.6rem;
   font-weight: 800;
   color: #365eeb;
+  display: block;
+}
+.home .content h1 .hero-prefix {
+  color: #002057;
 }
 .home .content p {
   font-size: 2.5rem;
   color: #000;
   font-weight: 600;
   padding: 1rem 0;
+  line-height: 1.5;
+  text-transform: none;
 }
 .home .content .availability {
   max-width: 64rem;
   color: #233d6b;
   font-size: 1.8rem;
   font-weight: 600;
+  text-transform: none;
+}
+.about .content .tag,
+.about .content .box-container a,
+.work .desc strong,
+.contact-container,
+.article-card,
+.career-guide,
+.service-page,
+.footer .box-container .box a {
   text-transform: none;
 }
 .hero-actions {
@@ -311,27 +339,24 @@ header .navbar ul li a:hover {
 /* social icons start */
 .socials {
   position: relative;
-  margin-top: 9rem;
+  margin-top: 1rem;
 }
 .trust-strip {
   min-height: auto;
   padding: 2rem 9%;
   background: #002057;
 }
-.trust-strip ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem 3rem;
-  list-style: none;
-}
-.trust-strip li {
+.trust-strip p {
+  margin: 0;
   color: #fff;
   font-size: 1.45rem;
   font-weight: 600;
+  letter-spacing: 0.05rem;
+  text-align: center;
   text-transform: none;
 }
 .trust-strip i { margin-right: 0.7rem; color: #ffcb05; }
+.trust-strip span { margin: 0 1rem; color: #ffcb05; }
 .socials .social-icons {
   padding-left: 0;
   margin-bottom: 0;
@@ -383,7 +408,7 @@ header .navbar ul li a:hover {
 @media (max-width: 450px) {
   .home .content h1,
   .home .content h1 span {
-    font-size: 3.6rem;
+    font-size: 3.2rem;
   }
   .home .btn {
     margin: 0;
@@ -398,6 +423,43 @@ header .navbar ul li a:hover {
   .home .content p span {
     font-size: 2.2rem;
   }
+}
+
+@media (max-width: 600px) {
+  .home .content h1,
+  .home .content h1 span { font-size: 3rem; }
+  .home .content p { font-size: 1.8rem; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 900px) {
+  .home {
+    min-height: auto;
+    padding: 9rem 2rem 5rem;
+    gap: 2rem;
+  }
+  .home .content,
+  .home .image {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .home .content { padding-top: 0; }
+  .home .content h1,
+  .home .content h1 span { font-size: 3rem; }
+  .home .content p { font-size: 1.8rem; }
+  .home .content .availability { font-size: 1.6rem; }
+  .home .image { text-align: center; }
+  .home .image img {
+    display: block;
+    width: min(72vw, 32rem);
+    margin: 1rem auto 0;
+  }
+  .hero-actions { gap: 1rem; }
+  .home .btn { padding: 1.4rem 2rem; }
+  .home .btn span { font-size: 1.45rem; }
+  .trust-strip { padding: 2rem; }
+  .trust-strip p { font-size: 1.3rem; line-height: 1.8; }
+  .trust-strip span { margin: 0 0.4rem; }
 }
 /* hero media queries ends*/
 /* hero section end */
@@ -1503,7 +1565,7 @@ header .navbar ul li a:hover {
 .service-final-cta .service-cta { color: #002057 !important; background: #ffcb05; }
 .service-final-cta .service-cta:hover { color: #fff !important; background: #0176d3; }
 header.service-header .navbar { position: static; height: auto; background: transparent; }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   header.service-header { padding: 1.7rem 5%; }
   header.service-header .navbar { position: static; display: block; width: auto; height: auto; background: transparent; }
   header.service-header .navbar ul { flex-flow: row; padding: 0; gap: 1rem; }

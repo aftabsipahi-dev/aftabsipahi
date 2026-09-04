@@ -3,6 +3,9 @@ $(document).ready(function () {
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
+        const isOpen = $('.navbar').hasClass('nav-toggle');
+        $(this).attr('aria-expanded', isOpen);
+        $(this).attr('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
     });
 
     $(window).on('scroll load', function () {
