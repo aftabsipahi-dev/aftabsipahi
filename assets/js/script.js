@@ -56,16 +56,6 @@ document.addEventListener('visibilitychange',
     });
 
 
-// <!-- typed js effect starts -->
-var typed = new Typed(".typing-text", {
-    strings: ["Salesforce Developer", "Salesforce Administrator", "Salesforce Consultant", "Computer Engineer"],
-    loop: true,
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay: 500,
-});
-// <!-- typed js effect ends -->
-
 async function fetchData(type = "skills") {
     let response
     type === "skills" ?
@@ -91,52 +81,8 @@ function showSkills(skills) {
     skillsContainer.innerHTML = skillHTML;
 }
 
-function showProjects(projects) {
-    let projectsContainer = document.querySelector("#work .box-container");
-    let projectHTML = "";
-    projects.slice(0, 6).forEach(project => {
-        projectHTML += `
-        <div class="box tilt">
-      <div class="project-visual">
-        <span>${project.industry}</span>
-      </div>
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-        </div>
-      </div>
-    </div>`
-    });
-    projectsContainer.innerHTML = projectHTML;
-
-    // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-    // <!-- tilt js effect ends -->
-
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
-
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
-
-}
-
 fetchData().then(data => {
     showSkills(data);
-});
-
-fetchData("projects").then(data => {
-    showProjects(data);
 });
 
 // <!-- tilt js effect starts -->
@@ -184,7 +130,7 @@ const srtop = ScrollReveal({
 });
 
 /* SCROLL HOME */
-srtop.reveal('.home .content h3', { delay: 200 });
+srtop.reveal('.home .content h1', { delay: 200 });
 srtop.reveal('.home .content p', { delay: 200 });
 srtop.reveal('.home .content .btn', { delay: 200 });
 
@@ -218,6 +164,20 @@ srtop.reveal('.work .box', { interval: 200 });
 srtop.reveal('.experience .timeline', { delay: 400 });
 srtop.reveal('.experience .timeline .container', { interval: 400 });
 
+/* SCROLL INSIGHTS */
+srtop.reveal('.article-card', { interval: 200 });
+
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const formData = new FormData(contactForm);
+        const recipient = `${contactForm.dataset.mailUser}@${contactForm.dataset.mailDomain}`;
+        const subject = `Portfolio enquiry from ${formData.get("name")}`;
+        const body = `Name: ${formData.get("name")}\nEmail: ${formData.get("email")}\n\nProject details:\n${formData.get("message")}`;
+        window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+}
+
 /* SCROLL CONTACT */
-srtop.reveal('.contact .container', { delay: 400 });
-srtop.reveal('.contact .container .form-group', { delay: 400 });
+srtop.reveal('.contact-container', { delay: 400 });
